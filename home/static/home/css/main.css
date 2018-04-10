@@ -66,7 +66,7 @@ body{
 .register_text_login{
 	display:block;
 }
-label {display:none;}
+/*label {display:none;}*/
 .login_error{
 	color:#FFF;
 	background-color:#b21f2d;
@@ -78,6 +78,10 @@ label {display:none;}
 	padding-left:7px;
 	padding-right:7px;
 }
+.registerBox form .login_error{
+	margin-bottom: 3px;
+}
+
 .username_login_error,
 .password_login_error{
 	color:#FFF;
@@ -108,7 +112,7 @@ canvas{
 }
 
 #particles-js{
-    position:fixed;
+	position:fixed;
   width: 100%;
   height: 100%;
   background-color: #2a2a2a;
@@ -254,12 +258,17 @@ form{
 	position:absolute;
 	top:45%;
 	left:50%;
-	transform:translate(-50%,-50%);
 	height:auto;
 }
-.registerBox form ul{
-	width:200px;
-	position:absolute;
-	top:10%;
-	left:100%;
+.register_success
+{
+	color:#FFF;
+	background-color: #13631a;
+	border:1px solid #13631a;
+	border-radius:2px;
+	width:100%;
+	display:inline-block;
+	padding-top:9px;
+	padding-left:7px;
+	padding-right:7px;
 }

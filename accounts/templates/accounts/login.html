@@ -11,6 +11,19 @@
             <div class="loginBox">
                 <h2 class="login_header">Log In Here</h2>
                <form method="post" >{% csrf_token %}
+                     {% if messages %}
+                        <div class="register_success">
+                            <svg class="icon icon-checkmark"><use xlink:href="#icon-checkmark"></use></svg>
+                        &nbsp;          Success&nbsp;
+                            <ul class="success">
+                                {% for message in messages %}
+                                        <li>
+                                            {{ message }}
+                                        </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
                     {% if form.non_field_errors %}
                     <div class="login_error">
                         <svg class="icon icon-notification"><use xlink:href="#icon-notification"></use></svg>
@@ -46,7 +59,7 @@
 
             <a href="{% url 'accounts:login' %}" class="forgot_text_login">Forgot Password ?</a>
             <span class="register_text_login">Not Have An Account Yet?</span>
-            <a href="{% url 'accounts:login' %}" class="sign_up_btn">Sign Up</a>
+            <a href="{% url 'accounts:register' %}" class="sign_up_btn">Sign Up</a>
             </div>
 
             <div id="particles-js"></div>
@@ -56,4 +69,5 @@
             <script src="{% static 'accounts/javascript/main.js' %}"></script>
 
     </div>
+    <div id="particles-js"></div>
 {% endblock %}
