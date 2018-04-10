@@ -1,0 +1,47 @@
+{% extends 'home/includes/base1.html' %}
+{% block content1 %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static '/home/css/main.css' %}" />
+    <link rel="stylesheet" href="{% static '/home/css/meny.css' %}" />
+{% endblock content1 %}
+{% block head_title %}Login{% endblock %}
+
+{% block body %}
+    {% include 'home/includes/navbar.html' %}
+    <div class="contents">
+            <div class="loginBox">
+                <h2 class="login_header">Log In Here</h2>
+
+                <form method="POST">
+            {% csrf_token %}
+                    {% if form.non_field_errors %}
+                    <div class="login_error">
+                        <svg class="icon icon-notification"><use xlink:href="#icon-notification"></use></svg>
+                        &nbsp;Error&nbsp;
+                        {{ form.non_field_errors }}
+                    </div>
+                    {% endif %}
+                    <div class="fieldWrapper">
+                        {{ form.username.errors }}
+                        {{ form.username }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.password.errors }}
+                        {{ form.password }}
+                    </div>
+
+                    <input type="submit" name="" value="Sign In">
+                </form>
+            <a href="{% url 'accounts:login' %}" class="forgot_text_login">Forgot Password ?</a>
+            <span class="register_text_login">Not Have An Account Yet?</span>
+            <a href="{% url 'accounts:login' %}" class="sign_up_btn">Sign Up</a>
+            </div>
+
+            <div id="particles-js"></div>
+            {% load staticfiles %}
+            <script src="{% static 'home/javascript/particles.min.js' %}"></script>
+            <script src="{% static 'home/javascript/app.js' %}"></script>
+            <script src="{% static 'accounts/javascript/main.js' %}"></script>
+
+    </div>
+{% endblock %}

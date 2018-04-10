@@ -1,0 +1,55 @@
+{% extends 'home/includes/base1.html' %}
+{% block content1 %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static '/home/css/main.css' %}" />
+    <link rel="stylesheet" href="{% static '/home/css/meny.css' %}" />
+{% endblock content1 %}
+{% block head_title %}Register{% endblock %}
+
+{% block body %}
+    {% include 'home/includes/navbar.html' %}
+    <div class="contents">
+            <div class="loginBox registerBox">
+                <h2 class="login_header">Sign Up</h2>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+
+                    {{ form.non_field_errors }}
+                        <div class="fieldWrapper">
+                            {{ form.username.errors }}
+                            <label for="{{ form.username.id_for_label }}">Email subject:</label>
+                            {{ form.username }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.email.errors }}
+                            <label for="{{ form.email.id_for_label }}">Your message:</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.password1.errors }}
+                            <label for="{{ form.password1.id_for_label }}">Your email address:</label>
+                            {{ form.password1 }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.password2.errors }}
+                            <label for="{{ form.password2.id_for_label }}">CC yourself?</label>
+                            {{ form.password2 }}
+                        </div>
+
+
+                    <input type="submit" name="" value="Sign Up">
+                </form>
+            <span class="register_text_login">Already Have An Account?</span>
+            <a href="{% url 'accounts:login' %}" class="sign_in_btn">Sign In</a>
+            </div>
+
+            <div id="particles-js"></div>
+            {% load staticfiles %}
+            <script src="{% static 'home/javascript/particles.min.js' %}"></script>
+            <script src="{% static 'home/javascript/app.js' %}"></script>
+            <script src="{% static 'accounts/javascript/main.js' %}"></script>
+
+    </div>
+{% endblock %}

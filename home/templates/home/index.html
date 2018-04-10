@@ -1,0 +1,29 @@
+{% extends 'home/includes/base1.html' %}
+{% block content1 %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static '/home/css/main.css' %}" />
+    <link rel="stylesheet" href="{% static '/home/css/meny.css' %}" />
+{% endblock content1 %}
+{% block head_title %}Home{% endblock %}
+{% block body %}
+    {% include 'home/includes/navbar.html' %}
+        <div class="contents">
+        {% if not logged_in %}
+            {% load staticfiles %}
+            <a href="#">
+                <div class="index_login_div">
+                    <img class="index_logo" src="{% static 'home/images/logo-small.png' %}"/>
+                    <h1 class="index_growithme_text">GroWithMe</h1>
+                </div>
+            </a>
+            <div id="particles-js"></div>
+            {% load staticfiles %}
+            <script src="{% static 'home/javascript/particles.min.js' %}"></script>
+            <script src="{% static 'home/javascript/app.js' %}"></script>
+        {% else %}
+            <h1 class="">Welcome MADAFAKA</h1>
+        {% endif %}
+        </div>
+
+
+{% endblock %}

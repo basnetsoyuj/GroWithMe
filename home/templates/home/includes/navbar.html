@@ -1,0 +1,65 @@
+{% block content %}
+    {% include 'home/includes/svg-def.html' %}
+    <div class="meny">
+            {% if not home %}
+            <div class="logo_div_nav">
+                    {% load staticfiles %}<img class="logo_nav" src="{% static 'home/images/logo-small.png' %}"/>
+                    <h1 class="logo_text_nav">GroWithMe</h1>
+            </div>
+            {% endif %}
+
+			<h2 class="navbar_header">Menu</h2>
+			<ul class="navbar_ul">
+                 <a href="{% url 'home:index' %}">
+                    <li class="navbar_li {% if home %}selected{% endif %}">
+                        <svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>
+                            <span class="navbar_li_text">&nbsp;Home</span>
+                    </li>
+                 </a>
+
+                <a href="{% url 'accounts:login'%}">
+                    <li class="navbar_li {% if asd %}selected{% endif %}">
+                        <span class="navbar_li_text">&nbsp;Blog</span>
+                    </li>
+                </a>
+
+                <a href="{% url 'accounts:login'%}">
+				<li class="navbar_li {% if asd %}selected{% endif %}">
+                    <svg class="icon icon-users"><use xlink:href="#icon-users"></use></svg>
+                    <span class="navbar_li_text">&nbsp;Forum</span>
+                </li>
+                </a>
+
+                {% if not logged_in %}
+                    <a href="{% url 'accounts:login'%}">
+                        <li class="navbar_li {% if login %}selected{% endif %}">
+                        <svg class="icon icon-key"><use xlink:href="#icon-key"></use></svg>
+                        <span class="navbar_li_text">&nbsp;Login</span>
+                        </li>
+                    </a>
+                {% else %}
+                    <a href="{% url 'accounts:logout'%}">
+                        <li class="navbar_li {% if login %}selected{% endif %}">
+                            <svg class="icon icon-exit"><use xlink:href="#icon-exit"></use></svg>
+                                <span class="navbar_li_text">&nbsp;Logout</span>
+                        </li>
+                    </a>
+                {% endif %}
+                <a href="{% url 'accounts:register' %}">
+                    {% if not logged_in %}<li class="navbar_li {% if register %}selected{% endif %}">
+                            <svg class="icon icon-clipboard"><use xlink:href="#icon-clipboard"></use></svg>
+                            <span class="navbar_li_text">&nbsp;Sign Up</span>
+                    </li>
+                    {% endif %}
+                </a>
+                <a href="{% url 'home:about' %}">
+                    <li class="navbar_li {% if about %}selected{% endif %}">
+                            <svg class="icon icon-info"><use xlink:href="#icon-info"></use></svg>
+                            <span class="navbar_li_text">&nbsp;About</span>
+                    </li>
+                </a>
+			</ul>
+    </div>
+
+    <div class="meny-arrow"></div>
+{% endblock %}
