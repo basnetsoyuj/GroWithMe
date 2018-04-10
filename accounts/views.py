@@ -7,7 +7,7 @@ def register(request):
             form.save()
             return redirect('accounts:login')
         else:
-            return render(request,'accounts:hom')
+            return redirect('accounts:register')
     else:
         form=RegistrationForm()
         jinja_dict={'form':form,'register':True}

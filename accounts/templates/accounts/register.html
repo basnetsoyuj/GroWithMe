@@ -12,37 +12,61 @@
             <div class="loginBox registerBox">
                 <h2 class="login_header">Sign Up</h2>
 
-                <form method="POST">
+                <form method="post" >
                     {% csrf_token %}
+                    {% if form.non_field_errors %}
+                    <div class="login_error">
+                        <svg class="icon icon-notification"><use xlink:href="#icon-notification"></use></svg>
+                        &nbsp;Error&nbsp;
+                        {{ form.non_field_errors }}
+                    </div>
+                    {% endif %}
+                    <div class="login_form">
+                                <div class="username_field">
+                                    <span class="username_glyphcion"><svg class="icon icon-user"><use xlink:href="#icon-user"></use></svg></span>
+                                    <input id="{{ form.username.id_for_label }}" maxlength="254" name="{{ form.username.html_name }}" placeholder="Enter Username" {% if form.username.value %}value="{{ form.username.value }}{% endif %}" type="text" />
+                                    {% if form.username.errors %}
+                                        <div class="username_login_error">
+                                            {{ form.username.errors }}
+                                        </div>
+                                    {% endif %}
+                                </div>
 
+                                <div class="email_field">
+                                    <span class="email_glyphicon"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg></span>
+                                    <input class="" id="{{ form.email.id_for_label }}" name="{{ form.email.html_name }}" placeholder="Enter Email Address" type="email" />
 
-                    {{ form.non_field_errors }}
-                        <div class="fieldWrapper">
-                            {{ form.username.errors }}
-                            <label for="{{ form.username.id_for_label }}">Email subject:</label>
-                            {{ form.username }}
-                        </div>
-                        <div class="fieldWrapper">
-                            {{ form.email.errors }}
-                            <label for="{{ form.email.id_for_label }}">Your message:</label>
-                            {{ form.email }}
-                        </div>
-                        <div class="fieldWrapper">
-                            {{ form.password1.errors }}
-                            <label for="{{ form.password1.id_for_label }}">Your email address:</label>
-                            {{ form.password1 }}
-                        </div>
-                        <div class="fieldWrapper">
-                            {{ form.password2.errors }}
-                            <label for="{{ form.password2.id_for_label }}">CC yourself?</label>
-                            {{ form.password2 }}
-                        </div>
+                                    {% if form.email.errors %}
+                                        <div class="username_login_error">
+                                            {{ form.email.errors }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="password_field">
+                                    <span class="password_glyphicon"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg></span>
+                                    <input class="" id="{{ form.password1.id_for_label }}" maxlength="254" name="{{ form.password1.html_name }}" placeholder="Enter Password" type="password" />
 
+                                    {% if form.password1.errors %}
+                                        <div class="password_login_error">
+                                            {{ form.password1.errors }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="password_field">
+                                    <span class="password_glyphicon"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg></span>
+                                    <input class="" id="{{ form.password2.id_for_label }}" maxlength="254" name="{{ form.password2.html_name }}" placeholder="Enter Password Again" type="password" />
 
-                    <input type="submit" name="" value="Sign Up">
-                </form>
-            <span class="register_text_login">Already Have An Account?</span>
-            <a href="{% url 'accounts:login' %}" class="sign_in_btn">Sign In</a>
+                                    {% if form.password2.errors %}
+                                        <div class="password_login_error">
+                                            {{ form.password2.errors }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            <input type="submit" name="" value="Sign Up">
+                        </div>
+                    </form>
+                <span class="register_text_login">Already Have An Account?</span>
+                <a href="{% url 'accounts:login' %}" class="sign_in_btn">Sign In</a>
             </div>
 
             <div id="particles-js"></div>

@@ -78,6 +78,24 @@ label {display:none;}
 	padding-left:7px;
 	padding-right:7px;
 }
+.username_login_error,
+.password_login_error{
+	color:#FFF;
+	background-color:#b21f2d;
+	border:1px solid #b21f2d;
+	border-radius:2px;
+	width:100%;
+	display:inline-block;
+	padding-top:11px;
+	padding-left:7px;
+	padding-right:7px;
+    margin:7px 0 7px 0;
+}
+.username_login_error ul li,
+.password_login_error ul li
+{
+	transform:translateY(2px);
+}
 .login_error svg{
 	float:left;
 	margin-top:1px;
@@ -129,6 +147,7 @@ form{
 	height: 40px;
 	color: #ffffff;
 	font-size: 20px;
+    float:left;
 }
 ::placeholder
 {

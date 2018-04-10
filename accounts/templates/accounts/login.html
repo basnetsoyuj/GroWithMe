@@ -1,19 +1,16 @@
 {% extends 'home/includes/base1.html' %}
 {% block content1 %}
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static '/home/css/main.css' %}" />
+    <link rel="stylesheet" href="{% static '/home/css/main.css' %}"/>
     <link rel="stylesheet" href="{% static '/home/css/meny.css' %}" />
 {% endblock content1 %}
 {% block head_title %}Login{% endblock %}
-
 {% block body %}
     {% include 'home/includes/navbar.html' %}
     <div class="contents">
             <div class="loginBox">
                 <h2 class="login_header">Log In Here</h2>
-
-                <form method="POST">
-            {% csrf_token %}
+               <form method="post" >{% csrf_token %}
                     {% if form.non_field_errors %}
                     <div class="login_error">
                         <svg class="icon icon-notification"><use xlink:href="#icon-notification"></use></svg>
@@ -21,17 +18,32 @@
                         {{ form.non_field_errors }}
                     </div>
                     {% endif %}
-                    <div class="fieldWrapper">
-                        {{ form.username.errors }}
-                        {{ form.username }}
-                    </div>
-                    <div class="fieldWrapper">
-                        {{ form.password.errors }}
-                        {{ form.password }}
-                    </div>
+                    <div class="login_form">
+                            <div class="username_field">
+                                <span class="username_glyphcion"><svg class="icon icon-user"><use xlink:href="#icon-user"></use></svg></span>
+                                <input id="{{ form.username.id_for_label }}" maxlength="254" name="{{ form.username.html_name }}" placeholder="Enter Username" {% if form.username.value %}value="{{ form.username.value }}{% endif %}" type="text" />
+                                {% if form.username.errors %}
+                                    <div class="username_login_error">
+                                        {{ form.username.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
 
-                    <input type="submit" name="" value="Sign In">
+                            <div class="password_field">
+                                <span class="password_glyphicon"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg></span>
+                                <input class="" id="{{ form.password.id_for_label }}" maxlength="254" name="{{ form.password.html_name }}" placeholder="Enter Password" type="password" />
+
+                                {% if form.password.errors %}
+                                    <div class="password_login_error">
+                                        {{ form.password.errors }}
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                        <input type="submit" name="" value="Log In">
+                    </div>
                 </form>
+
             <a href="{% url 'accounts:login' %}" class="forgot_text_login">Forgot Password ?</a>
             <span class="register_text_login">Not Have An Account Yet?</span>
             <a href="{% url 'accounts:login' %}" class="sign_up_btn">Sign Up</a>
