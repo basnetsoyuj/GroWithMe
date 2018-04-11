@@ -24,13 +24,15 @@
 	}
 }
 @media(min-width:908px){
-	.loginBox{
-	width:455px;
+	.loginBox,
+	.registerBox{
+	width:543px;
 	}
 }
 @media(max-width:908px){
-	.loginBox{
-	width:60vw;
+	.loginBox,
+	.registerBox{
+	width:70vw;
 	}
 }
 @media(max-width:760px){
@@ -100,12 +102,12 @@ body{
 {
 	transform:translateY(2px);
 }
-.login_error svg{
+/*.login_error svg{
 	float:left;
 	margin-top:1px;
 	width:19px;
 	height:19px;
-}
+}*/
 canvas{
   display:block;
   vertical-align:bottom;
@@ -125,41 +127,51 @@ canvas{
 .loginBox
 {
 	position: absolute;
-	top: 60%;
 	left: 50%;
-	transform: translate(-50%,-40%);
+	transform:translate(-50%,25%);
+	box-sizing: border-box;
+    z-index:2;
+}
+.registerBox
+{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 	box-sizing: border-box;
     z-index:2;
 	margin-top:15px;
 }
-.loginBox input
+.loginBox input,.registerBox input
 {
-	width: 100%;
-	margin-bottom:10px;
+	width: 85%;
+	margin-top:30px;
 }
 form{
 	font-size:20px;
 }
 .loginBox input[type="text"],
+.registerBox input[type="text"],
 .loginBox input[type="password"],
+.registerBox input[type="password"],
+.registerBox input[type="email"],
 .loginBox input[type="email"]
 {
 	border: none;
 	border-bottom: 1px solid #bababa;
 	background: transparent;
 	outline: none;
-	height: 40px;
 	color: #ffffff;
 	font-size: 20px;
-    float:left;
 }
 ::placeholder
 {
 	color: rgba(255, 255, 255, 0.7);
 	font-size:1.2em;
 }
-.loginBox input[type="submit"]
+.loginBox input[type="submit"],
+.registerBox input[type="submit"]
 {
+	width:93%;
 	border: none;
 	outline: none;
 	height: 40px;
@@ -170,13 +182,15 @@ form{
 	border-radius: 17px;
 	border: 2px solid #FFFFFF;
 }
-.loginBox input[type="submit"]:hover
+.loginBox input[type="submit"]:hover,
+.registerBox input[type="submit"]:hover
 {
 	background: #ffffff;
 	color: #0e0e0e;
 	font-weight:bold;
 }
-.loginBox input[type="submit"]:active
+.loginBox input[type="submit"]:active,
+.registerBox input[type="submit"]:active
 {
 	border: none;
 	outline: none;
@@ -188,7 +202,9 @@ form{
 	border-radius: 17px;
 	border: 2px solid #FFFFFF;
 }
-.loginBox input[type="text"]:focus,.loginBox input[type="password"]:focus ,.loginBox input[type="email"]:focus{
+.loginBox input[type="text"]:focus,.loginBox input[type="password"]:focus ,.loginBox input[type="email"]:focus,
+.registerBox input[type="text"]:focus,.registerBox input[type="password"]:focus ,.registerBox input[type="email"]:focus
+{
 	border-bottom: 1px solid rgba(255, 255, 255);
 	color: #ffffff;
 }
@@ -253,12 +269,6 @@ form{
 }
 .login_header{
 	font-family:'Share Tech';
-}
-.loginBox{
-	position:absolute;
-	top:45%;
-	left:50%;
-	height:auto;
 }
 .register_success
 {
