@@ -17,14 +17,8 @@
                     </li>
                  </a>
 
-                <a href="{% url 'accounts:login'%}">
-                    <li class="navbar_li {% if asd %}selected{% endif %}">
-                        <span class="navbar_li_text">&nbsp;Blog</span>
-                    </li>
-                </a>
-
                 <a href="{% url 'forum:index'%}">
-				<li class="navbar_li {% if asd %}selected{% endif %}">
+				<li class="navbar_li {% if forum %}selected{% endif %}">
                     <svg class="icon icon-users"><use xlink:href="#icon-users"></use></svg>
                     <span class="navbar_li_text">&nbsp;Forum</span>
                 </li>

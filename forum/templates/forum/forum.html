@@ -7,8 +7,12 @@
 {% block head_title %}Forum{% endblock %}
 {% block body %}
     {% include 'home/includes/navbar.html' %}
-    <div id="particles-js"></div>
-    {% load staticfiles %}
-    <script src="{% static 'home/javascript/particles.min.js' %}"></script>
-    <script src="{% static 'home/javascript/app.js' %}"></script>
+        <div class="contents">
+            <div id="particles-js"></div>
+            {% load staticfiles %}
+            <script src="{% static 'home/javascript/particles.min.js' %}"></script>
+            <script src="{% static 'home/javascript/app.js' %}"></script>
+        </div>
+
+
 {% endblock %}

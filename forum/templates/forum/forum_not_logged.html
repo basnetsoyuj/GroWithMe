@@ -1,21 +1,23 @@
 {% extends 'home/includes/base1.html' %}
 {% block content1 %}
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static '/home/css/main.css' %}" />
     <link rel="stylesheet" href="{% static '/home/css/meny.css' %}" />
+    <link rel="stylesheet" href="{% static '/forum/css/forum_main.css' %}" />
 {% endblock content1 %}
 {% block head_title %}Forum{% endblock %}
 {% block body %}
     {% include 'home/includes/navbar.html' %}
         <div class="contents">
-            {% load staticfiles %}
+            <div class="peculiar_forum">
+            <div class="error_login_required">
                 You Have To Be A Member To Use This Feature .
-                Please Login
-            <a href="{% url 'accounts:login'%}">Login</a>
+                Please Login</div>
+            <a href="{% url 'accounts:login'%}" class="badge-danger">Login</a>
             <div id="particles-js"></div>
             {% load staticfiles %}
             <script src="{% static 'home/javascript/particles.min.js' %}"></script>
             <script src="{% static 'home/javascript/app.js' %}"></script>
+            </div>
         </div>
 
 

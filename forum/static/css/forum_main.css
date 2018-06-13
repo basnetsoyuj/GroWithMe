@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech');
+@media(max-width:801px) and (min-width:320px){
+	.index_logo{
+		width:7vw;
+	}
+	.index_growithme_text{
+		font-size:7vw;
+	}
+}
+@media(min-width:343px){
+	.loginBox input[type="text"],
+	.registerBox input[type="text"],
+	.loginBox input[type="password"],
+	.registerBox input[type="password"],
+	.registerBox input[type="email"],
+	.loginBox input[type="email"]
+{
+	font-size: 20px;
+}
+.loginBox input[type="submit"],
+.registerBox input[type="submit"]
+{
+	font-size: 22px;
+}
+}
+@media(max-width:342px){
+	.loginBox input[type="text"],
+	.registerBox input[type="text"],
+	.loginBox input[type="password"],
+	.registerBox input[type="password"],
+	.registerBox input[type="email"],
+	.loginBox input[type="email"]
+{
+	font-size: 17px;
+}
+.loginBox input[type="submit"],
+.registerBox input[type="submit"]
+{
+	font-size: 19px;
+}
+}
+@media(max-width:319px){
+	.index_logo{
+		width:9vw;
+	}
+	.index_growithme_text{
+		font-size:9vw;
+	}
+}
+@media(min-width:802px){
+	.index_logo{
+		width:5vw;
+	}
+	.index_growithme_text{
+		font-size:5vw;
+	}
+}
+@media(min-width:908px){
+	.loginBox,
+	.registerBox{
+	width:543px;
+	}
+}
+@media(max-width:908px){
+	.loginBox,
+	.registerBox{
+	width:70vw;
+	}
+}
+@media(max-width:760px){
+	.login_header{
+	font-size:8vw;
+}}
+@media(min-width:761px){
+	.login_header{
+	font-size:5vw;
+}
+}
+.icon {
+	display: inline-block;
+	color:#fefefe;
+  	width: 1em;
+	height: 1em;
+	fill: currentColor;
+	stroke:currentColor;
+}
+*{margin:0;
+padding:0;}
+ul{
+	list-style: none;
+}
+a,a:hover,a:active,a:visited{
+	text-decoration: none;
+	color:#fff;
+}
+body{
+	font-family:'Share Tech';
+	color: #fff;
+}
+}
+.index_login_div{
+	padding:8px 0 0px 0;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	z-index:5;
+	border-top:2px solid #fff;
+	border-bottom:2px solid #fff;
+}
+.index_logo{
+	float:left;
+	position:relative;
+	top:50%;
+}
+.index_growithme_text{
+	font-family:'Share Tech';
+	float:left;
+	color;#fff;
+	position:relative;
+	top:50%;
+}
+.index_growithme_text,.index_growithme_text:hover,.index_growithme_text:active,.index_growithme_text:visited{
+	color:#fff;
+}
+.navbar_header{
+	padding:5px 0px 5px 5px;
+	font-family:'Share Tech';
+	text-decoration:underline;
+}
+.navbar_li{
+	padding:10px 0 10px 10px;
+	margin:7px 0 7px 0px;
+}
+.navbar_li_text{
+	font-family:'Share Tech';
+	font-size:1.3em;
+}
+.selected{
+	background-color: #202121;
+	border-right:4px solid #fff;
+}
+.navbar_li:hover{
+	background-color: #2a2a2a;
+	border-right:4px solid #bbbbbb;
+}
+.logo_text_nav{
+	float:left;
+	padding:10px 0px 15px 5px;
+	position:relative;
+	top:50%;
+}
+.logo_nav{
+	float:left;
+	width:3em;
+	padding:10px 5px 15px 5px;
+	position:relative;
+	top:50%;
+}
