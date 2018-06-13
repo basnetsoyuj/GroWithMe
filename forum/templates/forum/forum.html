@@ -1,0 +1,14 @@
+{% extends 'home/includes/base1.html' %}
+{% block content1 %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static '/home/css/main.css' %}" />
+    <link rel="stylesheet" href="{% static '/home/css/meny.css' %}" />
+{% endblock content1 %}
+{% block head_title %}Forum{% endblock %}
+{% block body %}
+    {% include 'home/includes/navbar.html' %}
+    <div id="particles-js"></div>
+    {% load staticfiles %}
+    <script src="{% static 'home/javascript/particles.min.js' %}"></script>
+    <script src="{% static 'home/javascript/app.js' %}"></script>
+{% endblock %}
