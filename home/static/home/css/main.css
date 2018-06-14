@@ -311,3 +311,6 @@ form{
 .extra_info_login a:hover,.extra_info_register a:hover{
 	text-decoration: underline;
 }
+.contents{
+    background: #2a2a2a;
+}

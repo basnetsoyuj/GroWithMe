@@ -10,8 +10,14 @@
         <div class="contents">
             <div class="peculiar_forum">
                 {% load static %}
-                <img src="{% static 'forum/images/not_logged_in.svg' %}"/>
-            <a href="{% url 'accounts:login'%}" class="badge-danger">Login</a>
+                <img class="rick_svg"src="{% static 'forum/images/not_logged_in.svg' %}"/>
+                <div class="login_required_text">
+                    <h1>You Have To Be Logged In To Use This Feature !</h1>
+                </div>
+                <div class="login_redirect_text">
+                    {% load static %}<a href="{% url 'accounts:login' %}" class="login_a">Login</a>
+                    <a href="{% url 'accounts:register' %}" class="register_a">Sign Up</a>
+                </div>
             </div>
         </div>
 

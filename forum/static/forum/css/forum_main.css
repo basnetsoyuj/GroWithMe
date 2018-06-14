@@ -1,4 +1,67 @@
 @import url('https://fonts.googleapis.com/css?family=Share+Tech');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:900i');
+@media (max-width:1010px) and (min-width:667px)
+{
+	.login_required_text{
+		transform:translateX(-50%);
+		top:10%;
+		left:70%;	width:400px;
+	}
+	.login_redirect_text{
+		top:40%;
+		left:70%;
+		transform:translateX(-50%);	width:400px;
+	}
+}
+@media (max-width:443px)/*and (min-width:444px)*/{
+	.login_required_text{
+		top:10%;
+		left:10%;
+		width:300px;
+		font-size:20px;
+	}
+	.login_redirect_text{
+		top:53%;
+		left:10%;
+		width:300px;
+		font-size:20px;
+	}
+}
+@media (max-width:571px)and (min-width:444px){
+	.login_required_text{
+		top:10%;
+		left:55%;
+		transform:translateX(-50%);	width:400px;
+	}
+	.login_redirect_text{
+		top:40%;
+		left:55%;
+		transform:translateX(-50%);	width:400px;
+	}
+}
+@media (max-width:666px)and (min-width:572px){
+	.login_required_text{
+		top:10%;
+		left:65%;
+		transform:translateX(-50%);	width:400px;
+	}
+	.login_redirect_text{
+		top:40%;
+		left:65%;
+		transform:translateX(-50%);	width:400px;
+	}
+}@media (min-width:1011px){
+	.login_required_text{
+			top:10%;
+			left:80%;
+		transform:translateX(-50%);	width:400px;
+	}
+	.login_redirect_text{
+		top:40%;
+		left:80%;
+		transform:translateX(-50%);	width:400px;
+	}
+}
 @media(max-width:801px) and (min-width:320px){
 	.index_logo{
 		width:7vw;
@@ -55,6 +118,12 @@
 		font-size:5vw;
 	}
 }
+@media(max-width:692px){
+	.rick_svg{
+		width:130%;
+		height:130%;
+	}
+}
 @media(min-width:908px){
 	.loginBox,
 	.registerBox{
@@ -95,7 +164,7 @@ a,a:hover,a:active,a:visited{
 }
 body{
 	font-family:'Share Tech';
-	color: #fff;
+	background-color: #fff;
 }
 }
 .index_login_div{
@@ -156,4 +225,69 @@ body{
 	padding:10px 5px 15px 5px;
 	position:relative;
 	top:50%;
+}
+.meny-left .meny-arrow {
+		left: 14px;
+		top: 50%;
+		margin-top: -16px;
+		border-left: 16px solid #000;
+}
+.meny-right .meny-arrow {
+		right: 14px;
+		top: 50%;
+		margin-top: -16px;
+		border-right: 16px solid #000;
+}
+.meny-top .meny-arrow {
+		left: 50%;
+		top: 14px;
+		margin-left: -16px;
+		border-top: 16px solid #000;
+}
+.meny-bottom .meny-arrow {
+		left: 50%;
+		bottom: 14px;
+		margin-left: -16px;
+		border-bottom: 16px solid #000;
+}
+.rick_svg{
+	width:700px;
+	height:700px;
+	position:fixed;
+	top:50%;
+	left:30%;
+	transform:translate(-50%,-50%);
+	}
+.login_required_text{
+	padding:5px;
+	position:absolute;
+	/*font-family: 'Fira Sans';*/
+	color:red;
+	background-color: rgba(255,255,255,0.8);
+}
+.login_redirect_text{
+	padding:5px;
+	position:absolute;
+	color:red;
+	font-size:30px;
+	background-color: rgba(255,255,255,0.8);
+}
+.login_a{
+	padding:5px 25px;
+	border-radius:5px;
+	background:transparent;
+	color:red;
+	border:2px solid red;
+}.register_a,register_a:active{
+	padding:5px 25px;
+	border-radius:5px;
+	background:transparent;
+	color:#1A5E22;
+	border:2px solid #1A5E22;
+}.register_a:hover{
+	padding:5px 25px;
+	border-radius:5px;
+	background:#1A5E22;
+	color:#fff;
+	border:2px solid #1A5E22;
 }
