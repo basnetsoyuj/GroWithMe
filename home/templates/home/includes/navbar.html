@@ -1,12 +1,10 @@
 {% block content %}
     {% include 'home/includes/svg-def.html' %}
     <div class="meny">
-            {% if not home %}
             <div class="logo_div_nav">
                     {% load staticfiles %}<img class="logo_nav" src="{% static 'home/images/logo-small.png' %}"/>
                     <h1 class="logo_text_nav">GroWithMe</h1>
             </div>
-            {% endif %}
 
 			<h2 class="navbar_header">Menu</h2>
 			<ul class="navbar_ul">
@@ -53,6 +51,7 @@
                     </li>
                 </a>
 			</ul>
+        <!--<span class="copyright" style="font-family:Arial"> &nbsp; Copyright © 2018 - GroWithMe </span>-->
     </div>
 
     <div class="meny-arrow"></div>

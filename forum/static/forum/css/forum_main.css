@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Share+Tech');
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:900i');
 @media (max-width:1010px) and (min-width:667px)
 {
 	.login_required_text{
@@ -8,7 +7,7 @@
 		left:70%;	width:400px;
 	}
 	.login_redirect_text{
-		top:40%;
+		top:57%;
 		left:70%;
 		transform:translateX(-50%);	width:400px;
 	}
@@ -21,7 +20,7 @@
 		font-size:20px;
 	}
 	.login_redirect_text{
-		top:53%;
+		top:70%;
 		left:10%;
 		width:300px;
 		font-size:20px;
@@ -34,7 +33,7 @@
 		transform:translateX(-50%);	width:400px;
 	}
 	.login_redirect_text{
-		top:40%;
+		top:70%;
 		left:55%;
 		transform:translateX(-50%);	width:400px;
 	}
@@ -46,7 +45,7 @@
 		transform:translateX(-50%);	width:400px;
 	}
 	.login_redirect_text{
-		top:40%;
+		top:70%;
 		left:65%;
 		transform:translateX(-50%);	width:400px;
 	}
@@ -57,7 +56,7 @@
 		transform:translateX(-50%);	width:400px;
 	}
 	.login_redirect_text{
-		top:40%;
+		top:57%;
 		left:80%;
 		transform:translateX(-50%);	width:400px;
 	}
@@ -261,7 +260,7 @@ body{
 .login_required_text{
 	padding:5px;
 	position:absolute;
-	/*font-family: 'Fira Sans';*/
+	font-weight:bold;
 	color:red;
 	background-color: rgba(255,255,255,0.8);
 }
@@ -272,22 +271,29 @@ body{
 	font-size:30px;
 	background-color: rgba(255,255,255,0.8);
 }
-.login_a{
-	padding:5px 25px;
-	border-radius:5px;
-	background:transparent;
-	color:red;
-	border:2px solid red;
-}.register_a,register_a:active{
-	padding:5px 25px;
-	border-radius:5px;
-	background:transparent;
-	color:#1A5E22;
-	border:2px solid #1A5E22;
-}.register_a:hover{
+.register_a,register_a:active{
 	padding:5px 25px;
 	border-radius:5px;
 	background:#1A5E22;
 	color:#fff;
 	border:2px solid #1A5E22;
+}.register_a:hover{
+	padding:5px 25px;
+	border-radius:5px;
+	background:transparent;
+	color:#1A5E22;
+	border:2px solid #1A5E22;
+}
+ .login_a,login_a:active{
+	padding:5px 30px;
+	border-radius:5px;
+	background:#213659;
+	color:#fff;
+	border:2px solid #213659;
+}.login_a:hover{
+	padding:5px 30px;
+	border-radius:5px;
+	background:transparent;
+	color:#213659;
+	border:2px solid #213659;
 }
