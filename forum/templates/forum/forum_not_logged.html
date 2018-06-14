@@ -9,14 +9,9 @@
     {% include 'home/includes/navbar.html' %}
         <div class="contents">
             <div class="peculiar_forum">
-            <div class="error_login_required">
-                You Have To Be A Member To Use This Feature .
-                Please Login</div>
+                {% load static %}
+                <img src="{% static 'forum/images/not_logged_in.svg' %}"/>
             <a href="{% url 'accounts:login'%}" class="badge-danger">Login</a>
-            <div id="particles-js"></div>
-            {% load staticfiles %}
-            <script src="{% static 'home/javascript/particles.min.js' %}"></script>
-            <script src="{% static 'home/javascript/app.js' %}"></script>
             </div>
         </div>
 
