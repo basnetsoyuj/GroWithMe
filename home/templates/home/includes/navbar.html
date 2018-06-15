@@ -22,6 +22,13 @@
                 </li>
                 </a>
 
+                <a href="{% url 'home:about' %}">
+                    <li class="navbar_li {% if about %}selected{% endif %}">
+                            {% load staticfiles %}<img src="{% static 'home/images/minefield.svg' %}"/>
+                            <span class="navbar_li_text">&nbsp;MineField</span>
+                    </li>
+                </a>
+
                 {% if not logged_in %}
                     <a href="{% url 'accounts:login'%}">
                         <li class="navbar_li {% if login %}selected{% endif %}">
