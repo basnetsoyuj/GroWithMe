@@ -10,7 +10,7 @@
 			<ul class="navbar_ul">
                  <a href="{% url 'home:index' %}">
                     <li class="navbar_li {% if home %}selected{% endif %}">
-                        <svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>
+                        <svg class="icon icon-home" ><use xlink:href="#icon-home"></use></svg>
                             <span class="navbar_li_text">&nbsp;Home</span>
                     </li>
                  </a>
@@ -22,9 +22,9 @@
                 </li>
                 </a>
 
-                <a href="{% url 'home:about' %}">
+                <a href="{% url 'minefield:index' %}">
                     <li class="navbar_li {% if about %}selected{% endif %}">
-                            {% load staticfiles %}<img src="{% static 'home/images/minefield.svg' %}"/>
+                            {% load staticfiles %}<img src="{% static 'forum/images/minefield_nav.svg' %}" class="minefield_logo_nav" style="width:25px;height:25px;color:white"/>
                             <span class="navbar_li_text">&nbsp;MineField</span>
                     </li>
                 </a>

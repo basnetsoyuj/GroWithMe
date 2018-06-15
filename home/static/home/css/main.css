@@ -205,6 +205,9 @@ form{
 	cursor: pointer;
 	border-radius: 17px;
 	border: 2px solid #FFFFFF;
+	-webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 .loginBox input[type="submit"]:hover,
 .registerBox input[type="submit"]:hover
@@ -313,4 +316,16 @@ form{
 }
 .contents{
     background: #2a2a2a;
+}
+.navbar_ul a {
+    color: #fff;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.navbar_ul a:hover,
+.navbar_ul a:focus {
+    text-decoration: none;
+    color: #B8AEB1;
 }

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'forum','home','accounts',
+    'forum','home','accounts','minefield',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

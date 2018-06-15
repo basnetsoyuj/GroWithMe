@@ -101,49 +101,14 @@
 	font-size: 19px;
 }
 }
-@media(max-width:319px){
-	.index_logo{
-		width:9vw;
-	}
-	.index_growithme_text{
-		font-size:9vw;
-	}
-}
-@media(min-width:802px){
-	.index_logo{
-		width:5vw;
-	}
-	.index_growithme_text{
-		font-size:5vw;
-	}
-}
+
 @media(max-width:692px){
 	.rick_svg{
 		width:130%;
 		height:130%;
 	}
 }
-@media(min-width:908px){
-	.loginBox,
-	.registerBox{
-	width:543px;
-	}
-}
-@media(max-width:908px){
-	.loginBox,
-	.registerBox{
-	width:70vw;
-	}
-}
-@media(max-width:760px){
-	.login_header{
-	font-size:8vw;
-}}
-@media(min-width:761px){
-	.login_header{
-	font-size:5vw;
-}
-}
+
 .icon {
 	display: inline-block;
 	color:#fefefe;
@@ -296,4 +261,21 @@ body{
 	background:transparent;
 	color:#213659;
 	border:2px solid #213659;
+}
+ a {
+    color: #fff;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: #B8AEB1;
+}
+.login_a,.register_a{
+	-webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }

@@ -23,4 +23,5 @@ urlpatterns = [
     path('',include('home.urls')),
     path('accounts/',include('accounts.urls')),
     path('forum/',include('forum.urls')),
+    path('minefield/',include('minefield.urls')),
 ]
