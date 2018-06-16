@@ -7,6 +7,20 @@
             </div>
 
 			<h2 class="navbar_header">Menu</h2>
+            {% if explore %}
+                <ul class="navbar_ul">
+                    <li>
+                        <form method="get" action="{%  url 'forum:search'%}" class="e_search_group" autocomplete="off">
+                                    <div class="input-group">
+                                        <input type="text" class="input-group input-group-text e_search_input" name="keyword"placeholder="Search"/>
+                                        <button class="btn btn-lg btn-success e_search_button" type="submit">
+                                            <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>
+                                        </button>
+                                    </div>
+                        </form>
+                    </li>
+                </ul>
+            {% endif %}
 			<ul class="navbar_ul">
                  <a href="{% url 'home:index' %}">
                     <li class="navbar_li {% if home %}selected{% endif %}">
