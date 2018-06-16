@@ -1,6 +1,6 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
 
-  var scrollLink = $('#m');
+  var scrollLink = document.getElementById("trigger");
 
   // Smooth scrolling
   scrollLink.click(function(e) {
@@ -8,4 +8,4 @@ $(document).ready(function () {
     $('body,html').animate({
       scrollTop: $(this.hash).offset().top
     }, 1000 );
-  });});
+  });});*/

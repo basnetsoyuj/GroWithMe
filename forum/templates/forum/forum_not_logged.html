@@ -15,8 +15,8 @@
                     <h1>You Have To Be Logged In To Use This Feature !</h1>
                 </div>
                 <div class="login_redirect_text">
-                    {% load static %}<center><a href="{% url 'accounts:login' %}" class="login_a">Login</a>
-                    <a href="{% url 'accounts:register' %}" class="register_a">Sign Up</a></center>
+                    {% load static %}<center><a href="{% url 'accounts:login' %}" class="login_a"><svg class="icon icon-key login_a_svg" style="width: 20px;height:20px;"><use xlink:href="#icon-key"></use></svg>&nbsp;Login</a>
+                    <a href="{% url 'accounts:register' %}" class="register_a"><svg class="icon icon-clipboard register_a_svg" style="width: 20px;height:20px;"><use xlink:href="#icon-clipboard"></use></svg>&nbsp;Sign Up</a></center>
                 </div>
             </div>
         </div>
