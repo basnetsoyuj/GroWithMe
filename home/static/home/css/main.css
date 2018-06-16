@@ -317,7 +317,7 @@ form{
 .contents{
     background: #2a2a2a;
 }
-.navbar_ul a {
+.navbar_ul a{
     color: #fff;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;

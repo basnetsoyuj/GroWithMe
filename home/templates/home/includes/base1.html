@@ -11,6 +11,10 @@
       {% block content1 %}{% endblock content1 %}
     <link rel="shortcut icon" sizes="32x32" type="image/png" href="{% static '/home/images/logo-small.png' %}"/>
     <title> {% block head_title %}{% endblock %} | GroWithMe</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
   </head>
   <body>
     {% block body %}
@@ -61,5 +65,7 @@
 				contents.innerHTML = '<div class="cover"></div><iframe src="'+ Meny.getQuery().u +'" style="width: 100%; height: 100%; border: 0; position: absolute;"></iframe>';
 			}
 		</script>
+  {% block additional %}
+  {% endblock additional %}
   </body>
 </html>
