@@ -299,6 +299,7 @@ input[type="text"]:focus{
 	border-color:#000;
 }
 .search_group{
+	display:table;
 	position:absolute;
 	left:50%;
 	transform:translateX(-50%);
@@ -314,4 +315,21 @@ input[type="text"]:focus{
 .e_search_button{
 	width:20%;
 	border-radius:0;
+}
+.forum_list{
+    margin:auto 10px;
+}
+.img_physics{
+     background: url(../../forum/images/physics.png) no-repeat bottom center scroll;
+    background-color: #2a2a2a;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.explore_img{
+    width:100px;
+}
+.explore_ul div li {
+    text-align: center;
 }
