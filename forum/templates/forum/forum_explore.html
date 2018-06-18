@@ -15,36 +15,14 @@
             <p></p>
             <ul class="list-group explore_ul">
                 <div class="row">
-                    <li class="list-group-item col-sm-12 col-xl-4 col-lg-4 col-md-6 li_physics">
-                           <a href="/courses/logic-deduction/" >
-                                <img src="{% load static %}{% static "forum/images/physics.png" %}" class="explore_img"/>
-                               <span class="title">Physics</span>
-                           </a>
-                    </li>
-                    <li class="list-group-item col-sm-12 col-xl-4 col-lg-4 col-md-6 li_physics">
-                           <a href="/courses/logic-deduction/" >
-                                <img src="{% load static %}{% static "forum/images/computer.png" %}" class="explore_img"/>
-                               <span class="title">Physics</span>
-                           </a>
-                    </li>
-                    <li class="list-group-item col-sm-12 col-xl-4 col-lg-4 col-md-6 li_physics">
-                           <a href="/courses/logic-deduction/" >
-                                <img src="{% load static %}{% static "forum/images/chemistry.png" %}" class="explore_img"/>
-                               <span class="title">Physics</span>
-                           </a>
-                    </li>
-                    <li class="list-group-item col-sm-12 col-xl-4 col-lg-4 col-md-6 li_physics">
-                           <a href="/courses/logic-deduction/" >
-                                <img src="{% load static %}{% static "forum/images/biology.png" %}" class="explore_img"/>
-                               <span class="title">Physics</span>
-                           </a>
-                    </li>
-                    <li class="list-group-item col-sm-12 col-xl-4 col-lg-4 col-md-6 li_physics" >
-                           <a href="/courses/logic-deduction/" >
-                                <img src="{% load static %}{% static "forum/images/art.png" %}" class="explore_img"/>
-                               <span class="title">Physics</span>
-                           </a>
-                    </li>
+                        {% for object in object_list %}
+                            <li class="list-group-item col-sm-12 col-xl-4 col-lg-4 col-md-6 li_physics">
+                                   <a href="{{ object.section_link }}" >
+                                        <img src="{% load static %}{% static object.picture_link %}" class="explore_img"/>
+                                       <span class="title">{{ object.name }}</span>
+                                   </a>
+                            </li>
+                        {% endfor %}
                 </div>
             </ul>
             </div>
