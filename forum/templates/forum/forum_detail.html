@@ -1,0 +1,27 @@
+{% extends 'home/includes/base1.html' %}
+{% block content1 %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static '/home/css/meny.css' %}" />
+    <link rel="stylesheet" href="{% static '/forum/css/forum_main.css' %}" />
+
+{% endblock content1 %}
+{% block head_title %}{{ object.name }}&nbsp;Forum{% endblock %}
+{% block body %}
+    {% include 'home/includes/navbar.html' %}
+    <div class="contents">
+        <div class="container">
+        <h1 class="">Forum</h1>
+
+            <p></p>
+                <div class="row">
+                    <a href="{% url 'forum:explore' %}">Back</a>
+                    <p>
+                        <span class="title">{{ object.name }}</span><br>
+                        <span class="admin">Admin : {{ object.admin }}</span>
+                    </p>
+                        <img src="{% load static %}{% static 'forum/images/'|add:object.picture_link %}"/>
+                </div>
+            </div>
+    </div>
+
+{% endblock body %}

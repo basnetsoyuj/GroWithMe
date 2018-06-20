@@ -1,17 +1,13 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from django.views.generic import TemplateView,ListView
+from django.views.generic import TemplateView,ListView,DetailView
 from .models import ForumSection
-# Create your views here.
+from django.shortcuts import get_object_or_404
 class ForumIndexView(TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context['forum'] = True
         if self.request.user.is_authenticated:
             context['logged_in'] = True
-            return context
-        else:
-            return context
+        return context
 
     def get_template_names(self):
         if self.request.user.is_authenticated:
@@ -26,9 +22,7 @@ class ForumSearchView(TemplateView):
         context['forum'] = True
         if self.request.user.is_authenticated:
             context['logged_in'] = True
-            return context
-        else:
-            return context
+        return context
     def get_template_names(self):
         if self.request.user.is_authenticated:
             template_name = "forum/forum_search.html"
@@ -50,12 +44,30 @@ class ForumExploreView(ListView):
         if self.request.user.is_authenticated:
             context['logged_in'] = True
             context['explore'] = True
-            return context
-        else:
-            return context
+        return context
     def get_template_names(self):
         if self.request.user.is_authenticated:
             template_name = "forum/forum_explore.html"
+        else:
+            template_name = "forum/forum_not_logged.html"
+        return template_name
+
+
+class ForumSectionDetailView(DetailView):
+    def get_object(self):
+        section_link=self.kwargs.get("section_link")
+        obj=get_object_or_404(ForumSection,section_link=section_link)
+        return obj
+    def get_context_data(self, *args,**kwargs):
+        context = super().get_context_data(*args,**kwargs)
+        context['forum'] = True
+        if self.request.user.is_authenticated:
+            context['logged_in'] = True
+            context['explore'] = True
+        return context
+    def get_template_names(self):
+        if self.request.user.is_authenticated:
+            template_name = "forum/forum_detail.html"
         else:
             template_name = "forum/forum_not_logged.html"
         return template_name
