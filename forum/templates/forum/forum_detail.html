@@ -19,7 +19,14 @@
                         <span class="title">{{ object.name }}</span><br>
                         <span class="admin">Admin : {{ object.admin }}</span>
                     </p>
-                        <img src="{% load static %}{% static 'forum/images/'|add:object.picture_link %}"/>
+                        <img src="{% load static %}{% static 'forum/images/'|add:object.picture_link %}" class="img-thumbnail"/>
+                    <ul>
+                        <div>Subscribers</div>
+                        {% for a in object.subscribers.all %}
+                            <li>{{ a.username }}
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
     </div>

@@ -4,9 +4,10 @@ from django.db.models.signals import pre_save
 from .utils import unique_slug_generator
 class ForumSection(models.Model):
     name=models.CharField(max_length=75)
-    admin=models.ForeignKey(User,on_delete=models.CASCADE,default=1)
+    admin=models.ForeignKey(User,on_delete=models.CASCADE,default=1,related_name="ForumSection_admin")
     picture_link=models.CharField(max_length=250,default="default_section.png")
     section_link = models.SlugField(null=True, blank=True)
+    subscribers=models.ManyToManyField(User,related_name="ForumSection_subscribers")
     def __str__(self):
         return self.name
 
