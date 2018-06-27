@@ -333,3 +333,50 @@ input[type="text"]:focus{
 .explore_ul div li {
     text-align: center;
 }
+
+@media(min-width:767px){
+    .forum-heading{
+        font-size:60px;
+    }
+    .intro-text{
+        font-size:25px;
+    }
+}
+@media(max-width:767px){
+    .forum-heading{
+        font-size:40px;
+    }
+    .intro-text{
+        font-size:20px;
+    }
+}
+.intro {
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #000;
+    background: url(../../forum/images/background.jpg) no-repeat bottom center scroll;
+    background-color: #2a2a2a;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.forum-heading{
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.introstuff{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+.explore_a{
+	font-size:1.5em;
+	color:#000;
+}
