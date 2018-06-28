@@ -1,6 +1,7 @@
-from django.views.generic import TemplateView,ListView,DetailView
+from django.views.generic import TemplateView,ListView,DetailView,CreateView
 from .models import ForumSection
 from django.shortcuts import get_object_or_404
+from .forms import PostCreationForm
 class ForumIndexView(TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -71,3 +72,13 @@ class ForumSectionDetailView(DetailView):
         else:
             template_name = "forum/forum_not_logged.html"
         return template_name
+
+class PostCreateView(CreateView):
+    form_class = PostCreationForm
+    def get_template_names(self):
+        if self.request.user.is_authenticated:
+            template_name = "forum/post_create.html"
+        else:
+            template_name = "forum/forum_not_logged.html"
+        return template_name
+    success_url = "/forum/explore/"

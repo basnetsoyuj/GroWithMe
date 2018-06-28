@@ -22,21 +22,21 @@
                 </ul>
             {% endif %}
 			<ul class="navbar_ul">
-                 <a href="{% url 'home:index' %}">
+                 <a href="{% url 'home:index' %}" class="navbar_li_a">
                     <li class="navbar_li {% if home %}selected{% endif %}">
                         <svg class="icon icon-home" ><use xlink:href="#icon-home"></use></svg>
                             <span class="navbar_li_text">&nbsp;Home</span>
                     </li>
                  </a>
 
-                <a href="{% url 'forum:index'%}">
+                <a href="{% url 'forum:index'%}" class="navbar_li_a">
 				<li class="navbar_li {% if forum %}selected{% endif %}">
                     <svg class="icon icon-users"><use xlink:href="#icon-users"></use></svg>
                     <span class="navbar_li_text">&nbsp;Forum</span>
                 </li>
                 </a>
 
-                <a href="{% url 'minefield:index' %}">
+                <a href="{% url 'minefield:index' %}" class="navbar_li_a">
                     <li class="navbar_li {% if about %}selected{% endif %}">
                             {% load staticfiles %}<img src="{% static 'forum/images/minefield_nav.svg' %}" class="minefield_logo_nav" style="width:25px;height:25px;color:white"/>
                             <span class="navbar_li_text">&nbsp;MineField</span>
@@ -44,35 +44,34 @@
                 </a>
 
                 {% if not logged_in %}
-                    <a href="{% url 'accounts:login'%}">
+                    <a href="{% url 'accounts:login'%}" class="navbar_li_a">
                         <li class="navbar_li {% if login %}selected{% endif %}">
                         <svg class="icon icon-key"><use xlink:href="#icon-key"></use></svg>
                         <span class="navbar_li_text">&nbsp;Login</span>
                         </li>
                     </a>
                 {% else %}
-                    <a href="{% url 'accounts:logout'%}">
+                    <a href="{% url 'accounts:logout'%}" class="navbar_li_a">
                         <li class="navbar_li {% if login %}selected{% endif %}">
                             <svg class="icon icon-exit"><use xlink:href="#icon-exit"></use></svg>
                                 <span class="navbar_li_text">&nbsp;Logout</span>
                         </li>
                     </a>
                 {% endif %}
-                <a href="{% url 'accounts:register' %}">
+                <a href="{% url 'accounts:register' %}" class="navbar_li_a">
                     {% if not logged_in %}<li class="navbar_li {% if register %}selected{% endif %}">
                             <svg class="icon icon-clipboard"><use xlink:href="#icon-clipboard"></use></svg>
                             <span class="navbar_li_text">&nbsp;Sign Up</span>
                     </li>
                     {% endif %}
                 </a>
-                <a href="{% url 'home:about' %}">
+                <a href="{% url 'home:about' %}" class="navbar_li_a">
                     <li class="navbar_li {% if about %}selected{% endif %}">
                             <svg class="icon icon-info"><use xlink:href="#icon-info"></use></svg>
                             <span class="navbar_li_text">&nbsp;About</span>
                     </li>
                 </a>
 			</ul>
-        <!--<span class="copyright" style="font-family:Arial"> &nbsp; Copyright © 2018 - GroWithMe </span>-->
     </div>
 
     <div class="meny-arrow"></div>

@@ -130,10 +130,6 @@ padding:0;}
 ul{
 	list-style: none;
 }
-a,a:hover,a:active,a:visited{
-	text-decoration: none;
-	color:#fff;
-}
 body{
 	font-family:'Share Tech';
 	background-color: #fff;
@@ -256,8 +252,8 @@ body{
 	color:#213659;
 	border:2px solid #213659;
 }
- a {
-    color: #fff;
+ .navbar_li_a {
+     color:#fff;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -379,4 +375,14 @@ input[type="text"]:focus{
 .explore_a{
 	font-size:1.5em;
 	color:#000;
+}
+.back_a{
+    padding :10px;
+}
+.icon-circle-left{
+    color:#fff;
+}
+.img_detail{
+    max-width:320px;
+    height:auto;
 }

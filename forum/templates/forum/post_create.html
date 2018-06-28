@@ -1,0 +1,29 @@
+{% extends 'home/includes/base1.html' %}
+{% block content1 %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static '/home/css/meny.css' %}" />
+    <link rel="stylesheet" href="{% static '/forum/css/forum_main.css' %}" />
+
+{% endblock content1 %}
+{% block head_title %}{{ object.name }}&nbsp;Forum{% endblock %}
+{% block body %}
+    {% include 'home/includes/navbar.html' %}
+    <div class="contents">
+        <div class="container">
+            <h1 class="">Forum</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'forum:index' %}">Forum</a></li>
+                <li class="breadcrumb-item active">Create</li>
+              </ol>
+        </nav>
+
+            <div class="container">
+                <form method="post">
+                    {% csrf_token %}
+                {{ form.as_p }}
+                    <input type="submit"/>
+                </form>
+            </div>
+
+{% endblock body %}

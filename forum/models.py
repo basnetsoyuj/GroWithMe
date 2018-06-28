@@ -16,12 +16,12 @@ class ForumSection(models.Model):
         return self.name
 
 class Post(models.Model):
-    name=models.CharField(max_length=250)
+    title=models.CharField(max_length=250)
     author=models.ForeignKey(User,on_delete=models.CASCADE,default=1)
     section=models.ForeignKey(ForumSection,on_delete=models.CASCADE)
     content=models.TextField()
-    def __str(self):
-        return self.name
+    def __str__(self):
+        return self.title
 
 def forum_pre_save_receiver(sender,instance,*args,**kwargs):
     if not instance.section_link:
