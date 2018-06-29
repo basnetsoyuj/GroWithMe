@@ -22,29 +22,34 @@
 
 
             <div class="container">
-                <div class="jumbotron">
-                    <img src="{% load static %}{% static 'forum/images/'|add:object.picture_link %}" class="img-thumbnail img_detail"/>
-                    <p>
-                        <span class="admin">Admin : {{ object.admin }}</span>
-                    </p>
-                    <ul>
-                        <div>Subscribers : {{ object.subscribers.all.count }}</div>
-                    {% if object.subscribers.all %}
-                        {% for a in object.subscribers.all %}
-                            <li>{{ a.username }}
-                            </li>
-                        {% endfor %}
-                    {% endif %}
-                    </ul>
-                <ul>
-                        <div>Posts : {{ object.post_set.all.count }}</div>
-                        {% for a in object.post_set.all %}
-                            <li>{{ a.title }}
-                            </li>
-                        {% endfor %}
-                    </ul>
+                <div class="jumbotron clearfix">
+                    <header><h1>{{ object.name }}</h1></header>
+                    <img src="{% load static %}{% static 'forum/images/'|add:object.picture_link %}" class="float-left img-thumbnail img_detail"/>
+                    <div class="float-left section_desc">
+                                <div class="card">
+                                    <span class="admin card-header text-capitalize text-center">Admin : {{ object.admin }}</span>
+                                </div>
+                                <ul class="card container-fluid">
+                                    <div class="card-header text-center">Subscribers : <span class="badge-success p-1">{{ object.subscribers.all.count }}</span></div>
+                                    {% if object.subscribers.all %}
+                                        <div class="subs_list">
+                                    {% for a in object.subscribers.all %}
+                                        <li class="card-body card-columns">{{ a.username }}
+                                        </li>
+                                    {% endfor %}
+                                        </div>
+                                {% endif %}
+                                </ul>
+                            <ul>
+                                    <div>Posts : {{ object.post_set.all.count }}</div>
+                                    {% for a in object.post_set.all %}
+                                        <li>{{ a.title }}
+                                        </li>
+                                    {% endfor %}
+                            </ul>
+                    </div>
                 </div>
             </div>
     </div>
-
+        <script src="{% load static %}{% static "forum/js/forum.js" %}" type="text/javascript"></script>
 {% endblock body %}
