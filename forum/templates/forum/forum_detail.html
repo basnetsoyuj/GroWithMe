@@ -22,10 +22,11 @@
 
 
             <div class="container">
+                <div class="jumbotron">
+                    <img src="{% load static %}{% static 'forum/images/'|add:object.picture_link %}" class="img-thumbnail img_detail"/>
                     <p>
                         <span class="admin">Admin : {{ object.admin }}</span>
                     </p>
-                        <img src="{% load static %}{% static 'forum/images/'|add:object.picture_link %}" class="img-thumbnail img_detail"/>
                     <ul>
                         <div>Subscribers : {{ object.subscribers.all.count }}</div>
                     {% if object.subscribers.all %}

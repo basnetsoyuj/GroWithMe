@@ -24,6 +24,17 @@
                             </ul>
                         </div>
                     {% endif %}
+                    {% if next %}
+                        <div class="login_error" style="padding-bottom: 10px;">
+                        <svg class="icon icon-notification"><use xlink:href="#icon-notification"></use></svg>
+                        {% if user.is_authenticated %}
+                        Your account doesn't have access to this page. To proceed,
+                        please login with an account that has access.
+                        {% else %}
+                        Please login to see this page.
+                        {% endif %}
+                        </div>
+                    {% endif %}
                     {% if form.non_field_errors %}
                     <div class="login_error">
                         <svg class="icon icon-notification"><use xlink:href="#icon-notification"></use></svg>

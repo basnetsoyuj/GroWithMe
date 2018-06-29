@@ -115,7 +115,15 @@
 		height:130%;
 	}
 }
-
+@media(max-width:354px){
+	.img_detail{
+		width:100%;
+	}
+}@media(min-width:355px){
+	.img_detail{
+		width:320px;
+	}
+}
 .icon {
 	display: inline-block;
 	color:#fefefe;
@@ -134,7 +142,7 @@ body{
 	font-family:'Share Tech';
 	background-color: #fff;
 }
-}
+
 .index_logo{
 	float:left;
 	position:relative;
@@ -381,8 +389,4 @@ input[type="text"]:focus{
 }
 .icon-circle-left{
     color:#fff;
-}
-.img_detail{
-    max-width:320px;
-    height:auto;
 }
