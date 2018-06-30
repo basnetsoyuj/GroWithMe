@@ -115,15 +115,6 @@
 		height:130%;
 	}
 }
-@media(max-width:354px){
-	.img_detail{
-		width:100%;
-	}
-}@media(min-width:355px){
-	.img_detail{
-		width:320px;
-	}
-}
 .icon {
 	display: inline-block;
 	color:#fefefe;
@@ -394,6 +385,3 @@ input[type="text"]:focus{
 	padding:10px;
 	margin:0 10px;
 }
-.subs_list{
-	height:25%;
-	overflow:scroll;}
