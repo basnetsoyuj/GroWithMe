@@ -10,11 +10,11 @@
     {% include 'home/includes/navbar.html' %}
     <div class="contents">
         <div class="container">
-        <h1 class="">Forum </h1>
+        <h1 class="modal-header">Forum</h1>
             <ul class="explore_ul">
                 <div class="row">
                         {% for object in object_list %}
-                            <li class="list-group-item col-sm-6 col-xl-4 col-lg-4 col-md-6 section_{{ object.pk }}">
+                            <li class="list-group-item col-sm-12 col-xl-4 col-lg-4 col-md-6 section_{{ object.pk }}">
                                    <a href="{{ object.get_absolute_url }}" class="explore_a">
                                         <img src="{% load static %}{% static 'forum/images/'|add:object.picture_link %}" class="img-thumbnail explore_img"/>
                                        <br/><span class="title">{{ object.name }}</span>

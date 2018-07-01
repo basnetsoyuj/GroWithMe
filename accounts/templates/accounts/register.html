@@ -31,7 +31,7 @@
                     <div class="register_form">
                                 <div class="username_field">
                                     <span class="username_glyphcion"><svg class="icon icon-user"><use xlink:href="#icon-user"></use></svg></span>
-                                    <input id="{{ form.username.id_for_label }}" maxlength="254" name="{{ form.username.html_name }}" placeholder="Enter Username" {% if request.session.username %}value="{{ request.session.username }}"{% endif %} type="text" />
+                                    <input id="{{ form.username.id_for_label }}" maxlength="254" name="{{ form.username.html_name }}" placeholder="Enter Username" type="text" />
                                     {% if form.username.errors %}
                                         <div class="username_login_error">
                                             {{ form.username.errors }}
@@ -41,7 +41,7 @@
 
                                 <div class="email_field">
                                     <span class="email_glyphicon"><svg class="icon icon-mail3"><use xlink:href="#icon-mail3"></use></svg></span>
-                                    <input class="" id="{{ form.email.id_for_label }}" name="{{ form.email.html_name }}" placeholder="Enter Email Address" {% if request.session.email %}value="{{ request.session.email }}"{% endif %} type="email" />
+                                    <input class="" id="{{ form.email.id_for_label }}" name="{{ form.email.html_name }}" placeholder="Enter Email Address" type="email" />
 
                                     {% if form.email.errors %}
                                         <div class="username_login_error">

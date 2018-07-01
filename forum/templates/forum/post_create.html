@@ -1,29 +1,70 @@
 {% extends 'home/includes/base1.html' %}
 {% block content1 %}
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static '/home/css/meny.css' %}" />
     <link rel="stylesheet" href="{% static '/forum/css/forum_main.css' %}" />
-
+    <link rel="stylesheet" href="{% static '/home/css/meny.css' %}" />
 {% endblock content1 %}
-{% block head_title %}{{ object.name }}&nbsp;Forum{% endblock %}
+{% block head_title %}Create | Forum{% endblock %}
+
 {% block body %}
     {% include 'home/includes/navbar.html' %}
     <div class="contents">
-        <div class="container">
-            <h1 class="">Forum</h1>
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url 'forum:index' %}">Forum</a></li>
-                <li class="breadcrumb-item active">Create</li>
-              </ol>
-        </nav>
-
-            <div class="container">
-                <form method="post">
+    <div class="container">
+            <div class="PostBox">
+                <h1 class="modal-header">Forum</h1>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'forum:index' %}">Forum</a></li>
+                    <li class="breadcrumb-item active">Create</li>
+                  </ol>
+                </nav>
+                            <h2 class="modal-header">Create Post / Question</h2>
+                <form method="post form-control">
                     {% csrf_token %}
-                {{ form.as_p }}
-                    <input type="submit"/>
-                </form>
+                    <div class="post_form">
+                                <div class="title_field form-group">
+                                <label for="{{ form.title.id_for_label }}">Title : </label>
+                                    <input id="{{ form.title.id_for_label }}" maxlength="254" name="{{ form.title.html_name }}" placeholder="Enter Title" type="text" class="form-control form-text"/>
+                                    {% if form.title.errors %}
+                                        <div class="post_title_errors">
+                                            {{ form.title.errors }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="section_field">
+                                    {% if form.section.errors %}
+                                        <div class="post_section_errors">
+                                            {{ form.section.errors }}
+                                        </div>
+                                    {% endif %}
+                                {{ form.section }}
+                                </div>
+                                <div class="password_field">
+                                    <span class="password_glyphicon"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg></span>
+                                    <input class="" id="{{ form.password1.id_for_label }}" maxlength="254" name="{{ form.password1.html_name }}" placeholder="Enter Password" type="password" />
+
+                                    {% if form.password1.errors %}
+                                        <div class="password_login_error">
+                                            {{ form.password1.errors }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="password_field">
+                                    <span class="password_glyphicon"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg></span>
+                                    <input class="" id="{{ form.password2.id_for_label }}" maxlength="254" name="{{ form.password2.html_name }}" placeholder="Enter Password Again" type="password" />
+
+                                    {% if form.password2.errors %}
+                                        <div class="password_login_error">
+                                            {{ form.password2.errors }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            <input type="submit" name="" value="Submit">
+                        </div>
+                    </form>
             </div>
 
-{% endblock body %}
+    </div>
+    </div>
+{% endblock %}

@@ -10,14 +10,14 @@
     {% include 'home/includes/navbar.html' %}
     <div class="contents">
         <div class="container">
-            <h1 class="">Forum</h1>
+            <h1 class="modal-header">Forum</h1>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{% url 'forum:index' %}">Forum</a></li>
                 <li class="breadcrumb-item"><a href="{% url 'forum:explore' %}">Sections</a></li>
                 <li class="breadcrumb-item active">{{ object.name }}</li>
               </ol>
-        </nav>
+            </nav>
 
 
 
@@ -36,7 +36,19 @@
                                         <a href="#" class="subs_toggle" data-toggle="modal" data-target="#subs"><div class="card-header text-center">Subscribers : <span class="badge-success p-1">{{ object.subscribers.all.count }}</span></div></a>
                                     {% endif %}
                                 </div>
-                        <div class="card"><div class="card-header">Posts : {{ object.post_set.all.count }}</div></div>
+                        <div class="card text-center"><div class="card-header">Posts : {{ object.post_set.all.count }}</div></div>
+                        <div class="text-center buttons_fdetail">
+                            <a href="{% url 'forum:create' %}" class="btn btn-info mt-1">Add a Post/Question</a>
+                            {% if not is_subscribed %}
+                            <a href="{% url 'forum:subscribe' pk=object.pk %}" class="btn btn-success mt-1">
+                                <svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg>&nbsp;Subscribe
+                            </a>
+                            {% else %}
+                                <a href="{% url 'forum:subscribe' pk=object.pk %}" class="btn btn-success disabled mt-1">
+                                <svg class="icon icon-checkmark"><use xlink:href="#icon-checkmark"></use></svg>&nbsp;Subscribed
+                                </a>
+                            {% endif %}
+                        </div>
                     </div>
                         <div class="col-xl-6 col-lg-6 col-md-12"><img src="{% load static %}{% static 'forum/images/'|add:object.picture_link %}" class="img-thumbnail"/></div>
                 </div>
