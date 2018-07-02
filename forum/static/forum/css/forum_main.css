@@ -385,3 +385,6 @@ input[type="text"]:focus{
 	padding:10px;
 	margin:0 10px;
 }
+.subscribe-d{
+	opacity:0.65;
+}

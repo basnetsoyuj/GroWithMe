@@ -23,6 +23,8 @@ class Post(models.Model):
     author=models.ForeignKey(User,on_delete=models.CASCADE,default=1)
     section=models.ForeignKey(ForumSection,on_delete=models.CASCADE)
     content=models.TextField()
+    created_time=models.DateTimeField(auto_now_add=True)
+    updated_time=models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.title
 

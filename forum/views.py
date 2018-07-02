@@ -1,9 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView,ListView,DetailView,CreateView,View
-from .models import ForumSection
+from .models import ForumSection,Post
 from django.shortcuts import get_object_or_404,reverse,redirect
 from .forms import PostCreationForm
-from django.contrib.auth.models import User
 class ForumIndexView(LoginRequiredMixin,TemplateView):
     login_url = "/accounts/login/"
     def get_context_data(self, *args, **kwargs):
@@ -53,7 +52,8 @@ class PostCreateView(LoginRequiredMixin,CreateView):
         return context
     form_class = PostCreationForm
     template_name = "forum/post_create.html"
-    success_url = "/forum/explore/"
+    def get_success_url(self):
+        return reverse('forum:posts',kwargs={'pk':self.object.id})
 
 class Subscribe(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
@@ -65,3 +65,28 @@ class Subscribe(LoginRequiredMixin,View):
         if section and not is_subscribed :
             section.subscribers.add(loggedin_user)
         return redirect('forum:sections',section_link=section.section_link)
+
+class Unsubscribe(LoginRequiredMixin,View):
+    def get(self,request,*args,**kwargs):
+        section_pk=kwargs['pk']
+        loggedin_user=self.request.user
+        section = get_object_or_404(ForumSection, id=section_pk)
+        subscribers = list(section.subscribers.all())
+        is_subscribed = self.request.user in subscribers
+        if section and is_subscribed :
+            section.subscribers.remove(loggedin_user)
+        return redirect('forum:sections',section_link=section.section_link)
+
+class PostsView(LoginRequiredMixin,DetailView):
+    def get_object(self):
+        post_no=self.kwargs.get("pk")
+        obj=get_object_or_404(Post,pk=post_no)
+        return obj
+    def get_context_data(self, *args,**kwargs):
+        context = super().get_context_data(*args,**kwargs)
+        context.update({'forum': True, 'logged_in': True, 'explore': True })
+        return context
+    template_name = "forum/post_detail.html"
+
+class ListPostsView(ListView):
+    pass

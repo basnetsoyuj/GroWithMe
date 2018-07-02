@@ -44,7 +44,7 @@
                                 <svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg>&nbsp;Subscribe
                             </a>
                             {% else %}
-                                <a href="{% url 'forum:subscribe' pk=object.pk %}" class="btn btn-success disabled mt-1">
+                                <a href="{% url 'forum:unsubscribe' pk=object.pk %}" class="btn btn-success mt-1 subscribe-d" id="subscribed" style="width:123px;height:38px">
                                 <svg class="icon icon-checkmark"><use xlink:href="#icon-checkmark"></use></svg>&nbsp;Subscribed
                                 </a>
                             {% endif %}

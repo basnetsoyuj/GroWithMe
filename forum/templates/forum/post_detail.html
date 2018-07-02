@@ -1,0 +1,44 @@
+{% extends 'home/includes/base1.html' %}
+{% block content1 %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static '/home/css/meny.css' %}" />
+    <link rel="stylesheet" href="{% static '/forum/css/forum_main.css' %}" />
+
+{% endblock content1 %}
+{% block head_title %}{{ object.name }}&nbsp;Forum{% endblock %}
+{% block body %}
+    {% include 'home/includes/navbar.html' %}
+    <div class="contents">
+        <div class="container">
+            <h1 class="modal-header">Forum</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'forum:index' %}">Forum</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'forum:posts_general' %}">Posts</a></li>
+                <li class="breadcrumb-item active">{{ object.title }}</li>
+              </ol>
+            </nav>
+
+
+
+            <div class="container">
+                <div class="jumbotron clearfix">
+                    <header><h1>{{ object.title }}</h1></header>
+                    <div class="row">
+                    <div class="col-xl-5 col-lg-5 col-md-12 section_desc">
+                                <div class="card">
+                                    <span class="admin card-header text-capitalize text-center">Author : {{ object.author }}</span>
+                                </div>
+                                <div class="card container-fluid">
+                                    {{ object.content }}
+                                    {{ object.section }}
+                                </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>
+    </div>
+
+        <script src="{% load static %}{% static "forum/js/forum.js" %}" type="text/javascript"></script>
+{% endblock body %}

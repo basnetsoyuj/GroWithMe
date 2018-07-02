@@ -6,3 +6,8 @@ class PostCreationForm(forms.ModelForm):
         model=Post
         fields=['title','section','content']
 
+    def __init__(self, *args, **kwargs):
+        super(PostCreationForm, self).__init__(*args, **kwargs)
+        self.fields['section'].widget.attrs['class'] = 'form-control'
+        self.fields['content'].widget.attrs['class'] = 'form-control'
+        self.fields['title'].widget.attrs['class'] = 'form-control'
