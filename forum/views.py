@@ -1,8 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import TemplateView,ListView,DetailView,CreateView,View
-from .models import ForumSection,Post
-from django.shortcuts import get_object_or_404,reverse,redirect
+from django.shortcuts import get_object_or_404, reverse, redirect
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, View,UpdateView
+from django.contrib.auth.models import User
 from .forms import PostCreationForm
+from .models import ForumSection, Post
+
+
 class ForumIndexView(LoginRequiredMixin,TemplateView):
     login_url = "/accounts/login/"
     def get_context_data(self, *args, **kwargs):
@@ -52,8 +55,12 @@ class PostCreateView(LoginRequiredMixin,CreateView):
         return context
     form_class = PostCreationForm
     template_name = "forum/post_create.html"
-    def get_success_url(self):
-        return reverse('forum:posts',kwargs={'pk':self.object.id})
+    def form_valid(self, form):
+        post = form.save(commit=False)
+        post.author = User.objects.get(id=self.request.user.pk)
+        post.save()
+        print(post.id)
+        return redirect(reverse('forum:posts',kwargs={'pk':post.id}))
 
 class Subscribe(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
@@ -77,16 +84,18 @@ class Unsubscribe(LoginRequiredMixin,View):
             section.subscribers.remove(loggedin_user)
         return redirect('forum:sections',section_link=section.section_link)
 
-class PostsView(LoginRequiredMixin,DetailView):
+class PostsView(LoginRequiredMixin,UpdateView):
     def get_object(self):
         post_no=self.kwargs.get("pk")
         obj=get_object_or_404(Post,pk=post_no)
         return obj
     def get_context_data(self, *args,**kwargs):
         context = super().get_context_data(*args,**kwargs)
-        context.update({'forum': True, 'logged_in': True, 'explore': True })
+        context.update({'forum': True, 'logged_in': True, 'explore': True,'user':self.request.user.pk})
         return context
-    template_name = "forum/post_detail.html"
+    model = Post
+    fields = ['title','section','content']
+    template_name_suffix = "_update"
 
 class ListPostsView(ListView):
     pass

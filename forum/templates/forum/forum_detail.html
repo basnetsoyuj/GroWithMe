@@ -53,9 +53,20 @@
                         <div class="col-xl-6 col-lg-6 col-md-12"><img src="{% load static %}{% static 'forum/images/'|add:object.picture_link %}" class="img-thumbnail"/></div>
                 </div>
                 </div>
-            </div>
+    </div
+    <div class="row">
+        <ul class="list-group">
+            {% for post in object.post_set.all %}
+                <a href="{% url 'forum:posts' pk=post.pk %}"><li class="list-group-item">{{ post.title }}</li>
+            {% endfor %}
+        </ul>
     </div>
     </div>
+    </div>
+
+
+
+
     {% if object.subscribers.all %}
         <div class="modal fade" id="subs" tabindex="-1" role="dialog" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">

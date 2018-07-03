@@ -44,31 +44,7 @@
                 </div>
             </div>
             {% else %}
-                <div class="container">
-                <div class="jumbotron clearfix">
-                    <header><h1>{{ object.title }}</h1></header>
-                    <div class="row">
-                    <div class="col-xl-5 col-lg-5 col-md-12 section_desc">
-                        <form>
-                                <div class="card">
-                                    <span class="admin card-header text-capitalize text-center">Author : <input type="text" value="{{ object.author }}" class="form-control"/></span>
-                                </div>
-                        <div class="card">
-                                    <span class="admin card-header text-capitalize text-center">Date Created : {{ object.created_time }}</span>
-                                </div>
-                        <div class="card">
-                            <div class="card card-header">Section :</div>
-                            <div class="card card-body">{{ object.section }}</div>
-                        </div>
-                        <div class="card">
-                            <div class="card card-header">Content :</div>
-                            <div class="card card-body">{{ object.content }}</div>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-                </div>
-            </div>
+                {{ form.as_p }}
             {% endif %}
                 </div>
             </div>
