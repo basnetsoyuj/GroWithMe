@@ -9,7 +9,7 @@ $(document).ready(function(){
         $("#subscribed").html("<svg class=\"icon icon-checkmark\"><use xlink:href=\"#icon-checkmark\"></use></svg>&nbsp; Subscribe");
     });
     $(".errorlist").addClass('alert alert-danger mb-1');
-    /*error_content=$(".errorlist").html;
-    error_content="<svg class=\"icon icon-notification\"><use xlink:href=\"#icon-notification\"></use></svg>&nbsp;"+error_content;
-    $(".errorlist").html(error_content);*/
+    $("input[id=\"id_title\"]").addClass("form-control");
+    $("#id_section").addClass("form-control");
+    $("#id_content").addClass("form-control");
 });

@@ -59,7 +59,6 @@ class PostCreateView(LoginRequiredMixin,CreateView):
         post = form.save(commit=False)
         post.author = User.objects.get(id=self.request.user.pk)
         post.save()
-        print(post.id)
         return redirect(reverse('forum:posts',kwargs={'pk':post.id}))
 
 class Subscribe(LoginRequiredMixin,View):
@@ -84,7 +83,27 @@ class Unsubscribe(LoginRequiredMixin,View):
             section.subscribers.remove(loggedin_user)
         return redirect('forum:sections',section_link=section.section_link)
 
-class PostsView(LoginRequiredMixin,UpdateView):
+class PostsUpdateView(LoginRequiredMixin,UpdateView):
+    '''def get_object(self):
+        post_no=self.kwargs.get("pk")
+        obj=get_object_or_404(Post,pk=post_no)
+        return obj'''
+    def get_context_data(self, *args,**kwargs):
+        context = super().get_context_data(*args,**kwargs)
+        context.update({'forum': True, 'logged_in': True, 'explore': True,'user':self.request.user.pk})
+        return context
+    model = Post
+    fields = ['title','section','content']
+    def get_template_names(self):
+        if self.request.user.pk == get_object_or_404(Post,pk=self.kwargs.get("pk")).author.pk:
+            template_name="forum/post_update.html"
+            return template_name
+        else:
+            print(self.kwargs.get("pk"))
+            return redirect('forum:posts', pk=self.kwargs.get("pk"))
+
+
+class PostsView(LoginRequiredMixin,DetailView):
     def get_object(self):
         post_no=self.kwargs.get("pk")
         obj=get_object_or_404(Post,pk=post_no)
@@ -95,7 +114,7 @@ class PostsView(LoginRequiredMixin,UpdateView):
         return context
     model = Post
     fields = ['title','section','content']
-    template_name_suffix = "_update"
+    template_name="forum/post_detail.html"
 
 class ListPostsView(ListView):
     pass

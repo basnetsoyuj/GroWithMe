@@ -44,7 +44,14 @@
                 </div>
             </div>
             {% else %}
-                {{ form.as_p }}
+                <h2 class="modal-header"><svg class="icon icon-quill" style="color:#000;"><use xlink:href="#icon-quill"></use></svg>Edit Post / Question</h2>
+                <form method="post" class="form-control">
+                    {% csrf_token %}
+                    <div class="post_form">
+                        {{ form.as_p}}
+                        <input type="submit" name="submit" value="Submit" class="btn btn-info"/>
+                        </div>
+                    </form>
             {% endif %}
                 </div>
             </div>

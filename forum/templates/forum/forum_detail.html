@@ -54,13 +54,45 @@
                 </div>
                 </div>
     </div
-    <div class="row">
-        <ul class="list-group">
-            {% for post in object.post_set.all %}
-                <a href="{% url 'forum:posts' pk=post.pk %}"><li class="list-group-item">{{ post.title }}</li>
-            {% endfor %}
-        </ul>
+
+      <div class="container mb-4">
+          <h1 class="header">POSTS</h1>
+        {% if not object.post_set.all %}
+            This Section has no posts yet ! Be the First One To Post !
+        {% endif %}
+      <div class="row">
+          {% for post in object.post_set.all %}
+            <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-preview">
+            <span class="dot"></span>
+            <a href="{% url 'forum:posts' pk=post.pk %}">
+              <h2 class="post-title">
+                {{ post.title }}
+              </h2>
+                {% if post.subject %}
+              <h3 class="post-subtitle">
+                <code class="float-left">></code>
+                {{ post.subject }}
+              </h3>
+                {% endif %}
+                <h6 class="post-contents">
+                {{ post.content|linebreaks|truncatewords:10 }}
+              </h6>
+            </a>
+            <p class="post-meta">Posted by
+              <a href="{% url 'accounts:profile' username=post.author.username %}">{{ post.author }}</a>
+              , {{ post.created_time|timesince}} ago </p>
+          </div>
+          <hr>
+
+          </div>
+            <hr>
+        {% endfor %}
+        </div>
+      </div>
     </div>
+
+
     </div>
     </div>
 

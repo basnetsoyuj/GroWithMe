@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import RegistrationForm
+from django.views.generic import DetailView
 def register(request):
     if not request.user.is_authenticated:
         if(request.method=='POST'):
@@ -26,3 +27,6 @@ def register(request):
             return render(request,'accounts/register.html',jinja_dict)
     else:
         return redirect('home:index')
+
+class UserProfile(DetailView):
+    pass

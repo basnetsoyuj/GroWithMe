@@ -19,57 +19,21 @@
                 <li class="breadcrumb-item active">{{ object.title }}</li>
               </ol>
             </nav>
-            {% if user != object.author.pk %}
-            <div class="container">
-                <div class="jumbotron clearfix">
-                    <header><h1>{{ object.title }}</h1></header>
-                    <div class="row">
-                    <div class="col-xl-5 col-lg-5 col-md-12 section_desc">
-                                <div class="card">
-                                    <span class="admin card-header text-capitalize text-center">Author : {{ object.author }}</span>
-                                </div>
-                        <div class="card">
-                                    <span class="admin card-header text-capitalize text-center">Date Created : {{ object.created_time }}</span>
-                                </div>
-                        <div class="card">
-                            <div class="card card-header">Section :</div>
-                            <div class="card card-body">{{ object.section }}</div>
-                        </div>
-                        <div class="card">
-                            <div class="card card-header">Content :</div>
-                            <div class="card card-body">{{ object.content }}</div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-            {% else %}
+
                 <div class="container">
-                <div class="jumbotron clearfix">
-                    <header><h1>{{ object.title }}</h1></header>
-                    <div class="row">
-                    <div class="col-xl-5 col-lg-5 col-md-12 section_desc">
-                        <form>
-                                <div class="card">
-                                    <span class="admin card-header text-capitalize text-center">Author : <input type="text" value="{{ object.author }}" class="form-control"/></span>
-                                </div>
-                        <div class="card">
-                                    <span class="admin card-header text-capitalize text-center">Date Created : {{ object.created_time }}</span>
-                                </div>
-                        <div class="card">
-                            <div class="card card-header">Section :</div>
-                            <div class="card card-body">{{ object.section }}</div>
-                        </div>
-                        <div class="card">
-                            <div class="card card-header">Content :</div>
-                            <div class="card card-body">{{ object.content }}</div>
-                        </div>
-                        </form>
+                <div class="clearfix">
+                     <span class="admin text-center btn badge-info">By : <a href="{% url 'accounts:profile' username=object.author.username%}" class="user_url">{{ object.author }}</a></span>
+                <hr/>
+                    <header><h2 class="post-title">{{ object.title }}</h2></header>
+                    {% if object.subject %}<header><h5 class="post-subtitle">{{ object.subject }}</h5></header>{% endif %}
+                    <div class="section badge badge-primary"><span class="dot" style="background-color:#fff;width:9px;height:9px;"></span>&nbsp;{{ object.section }}</div>
+                    <hr>
+                    <div class="post-contents">
+                        {{ object.content|linebreaks }}
                     </div>
                 </div>
-                </div>
             </div>
-            {% endif %}
+
                 </div>
             </div>
         <script src="{% load static %}{% static "forum/js/forum.js" %}" type="text/javascript"></script>

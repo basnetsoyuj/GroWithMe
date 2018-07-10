@@ -1,5 +1,5 @@
 from django.urls import path,re_path
-from .views import ForumIndexView,ForumSearchView,ListPostsView,ForumExploreView,ForumSectionDetailView,PostCreateView,Subscribe,Unsubscribe,PostsView
+from .views import ForumIndexView,ForumSearchView,ListPostsView,ForumExploreView,ForumSectionDetailView,PostCreateView,PostsUpdateView,Subscribe,Unsubscribe,PostsView
 app_name="forum"
 urlpatterns = [
     path('',ForumIndexView.as_view(),name="index"),
@@ -11,4 +11,5 @@ urlpatterns = [
     path('unsubscribe/<int:pk>', Unsubscribe.as_view(), name="unsubscribe"),
     path('posts/', ListPostsView.as_view(), name="posts_general"),
     path('posts/<int:pk>', PostsView.as_view(), name="posts"),
+    path('posts/edit/<int:pk>', PostsUpdateView.as_view(), name="edit_post"),
 ]
